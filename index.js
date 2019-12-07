@@ -260,6 +260,23 @@ function getGermanCars(inventory) {
   return cars;
 }
 
+// or, this solution:
+// function getGermanCars(inventory) {
+//   const result = [];
+//   for (let i = 0; i < inventory.length; i++) {
+//     const car = inventory[i];
+//     if (
+//       car.car_make === 'Audi' ||
+//       car.car_make === 'Mercedes-Benz' ||
+//       car.car_make === 'Volkswagen' ||
+//       car.car_make === 'BMW'
+//     ) {
+//       result.push(car);
+//     }
+//   }
+//   return result;
+// }
+
 /**
  * ### Challenge refactor to arrow functions
  * 
@@ -279,8 +296,17 @@ function getGermanCars(inventory) {
  * }
 */
 const sum = (a, b) => a + b;
+//multi-statement function syntax: const sum = (a, b) => {
+//  return a + b;
+//}
 const addFive = (num) => num + 5;
+//multi-statement function syntax: const addFive = (num) => {
+//  return num + 5;
+//}
 const argTimesTwo = (num) => num * 2;
+//multi-statement function syntax: const sum = (num) => {
+//  return num * 2;
+//}
 
 /**
  * ### Challenge `carMaker`
@@ -295,8 +321,14 @@ const argTimesTwo = (num) => num * 2;
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometerNum) {
+  return{
+    odometer: odometerNum,
+    drive: function(distance) {
+      this.odometer = this.odometer + distance;
+      return this.odometer
+    }
+  };
 }
 
 /// ////// END OF CHALLENGE /////////
